@@ -1,0 +1,29 @@
+{
+    "name": "trusense.regressiontests",
+    "version": "1.0.0",
+    "description": "Automated Regression Tests for the TruSense Mobile App",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "node ./node_modules/typescript/lib/tsc.js && node ./node_modules/webdriverio/bin/wdio && node ./node_modules/rimraf/bin.js src"
+    },
+    "author": "Jarrod Geary",
+    "license": "ISC",
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "rimraf": "^2.6.2",
+        "typescript": "^3.1.6",
+        "wdio-mocha-framework": "^0.6.4",
+        "wdio-reporter": "^5.0.0-alpha.7",
+        "wdio-screenshot": "^0.6.0",
+        "wdio-visual-regression-service": "^0.9.0",
+        "webdriverio": "^4.14.0"
+    },
+    "dependencies": {
+        "@types/chai": "^4.1.7",
+        "@types/mocha": "^5.2.5",
+        "@types/webdriverio": "^4.13.0",
+        "@wdio/reporter": "^5.0.0-beta.5"
+    }
+}
