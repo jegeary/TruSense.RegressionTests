@@ -41,7 +41,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './dist/src/specs/*.js'
+        './dist/src/specs/login.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -208,9 +208,9 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    before: function(capabilities, specs) {
-        console.log(browser.gridTestSession());
-    },
+    // before: function(capabilities, specs) {
+        // console.log(browser.gridTestSession());
+    // },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
@@ -248,17 +248,18 @@ exports.config = {
      * @param {Object} test test details
      */
     afterTest: function(test) {
-        console.log('Test Title: "' + test.fullTitle + '"');
-        if (test.passed = true) {
-            console.log('Test Passed');
-        } else {
-            console.log('Test Failed');
-        }
-        var duration = test.duration;
-        var minutes = Math.floor(duration / 60000);
-        var seconds = ((duration % 60000) / 1000).toFixed(0);
-
-        console.log('Duration of Test: ' + (seconds == 60 ? (minutes + 1) + ":00" : minutes + ":" + (seconds < 10 ? "0" : "") + seconds));
+        console.log('Test: ' + JSON.stringify(test));
+       // if (test.passed = true) {
+       //     console.log('Test Passed');
+       // } else {
+       //     console.log('Test Failed');
+       // }
+       // var duration = test.duration;
+       // 
+       // var minutes = Math.floor(duration / 60000);
+       // var seconds = ((duration % 60000) / 1000).toFixed(0);
+//
+       // console.log('Duration of Test: ' + (seconds == 60 ? (minutes + 1) + ":00" : minutes + ":" + (seconds < 10 ? "0" : "") + seconds));
     },
     /**
      * Hook that gets executed after the suite has ended
@@ -275,20 +276,27 @@ exports.config = {
      * @param {Object} error error object if any
      */
     afterCommand: function(commandName, args, result, error) {
-        console.log('[' + Date.now() + '] - Command Name: ' + commandName);
-        args.forEach(arg => {
-            console.log('Argument:' + arg);
-        })
-        if (result = 1) {
-            console.log('Result: Success');
-        }
+        console.log('commandName: ' + JSON.stringify(commandName) + '\n');
+        console.log('args: ' + JSON.stringify(args) + '\n');
+        console.log('result: ' + JSON.stringify(result) + '\n');
+        console.log('error: ' + JSON.stringify(error) + '\n');
 
-        if (result = 0) {
-            console.log('Result: Error');
-            console.log('Error: ' + error)
-        }
-        console.log();
-
+       // console.log('[' + Date.now() + '] - Command Name: ' + commandName);
+       // args.forEach(arg => {
+       //     console.log('Argument:' + arg);
+       // })
+       // if (result = 1) {
+       //     console.log('Result: Success');
+       // }
+//
+       // if (result = 0) {
+       //     console.log('Result: Error');
+       //     console.log('Error: ' + error)
+       // }
+       // console.log();
+//
+       // console.log('current activity: ' + JSON.stringify(browser.getAppStrings()) + '\n');
+//
     },
     /**
      * Gets executed after all tests are done. You still have access to all global variables from

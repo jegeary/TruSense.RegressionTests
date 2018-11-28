@@ -9,10 +9,10 @@ describe('Login Screen', () => {
         help.waitForSplashScreen();
         help.getThroughIntroScreens();
         Login.FillOutLoginForm('jarrodgeary@gmail.com', 'Trusense#1234');
-        // let password = browser.getText(Login.Password);
-        // expect(password).to.equal('Trusense#1234');
+        let password = browser.getText(Login.Password);
+        expect(password).to.equal('Trusense#1234');
         Login.TapLoginButton();
-        browser.pause(3000);
+        browser.pause(5000);
         expect(browser.element(help.FabSelector).isVisibleWithinViewport()).to.be.true;
 
     });

@@ -24,17 +24,19 @@ class Actions {
         var stringLength = keysToSend.length;
         console.log('String length: ' + stringLength)
         for(var i = 0; i < stringLength; i++){
-            console.log(keysToSend.charAt(i));
-            var keyToSend = key.getKey(keysToSend.charAt(i)).toString();
-            if(keyToSend == keyToSend.toUpperCase()){
-                var metaState = MetaState.noShift.toString();
+            var keyChar = keysToSend.charAt(i);
+            console.log(keyChar);
+            var keyCodeToSend = key.getKey(keyChar);
+            console.log("Key To Send: " + keyCodeToSend.toString())
+            if(keyChar == keyChar.toUpperCase() && (keyCodeToSend > key.Pound && keyCodeToSend < key.Period)) {
+                var metaState = MetaState.shift.toString();
             }
             else{
                 var metaState = MetaState.noShift.toString();
             }
             console.log('meta state: ' + metaState);
-            browser.pressKeycode(keyToSend, metaState);
-            console.log('Sent Key: ' + keyToSend);
+            browser.pressKeycode(keyCodeToSend.toString(), metaState);
+            console.log('Sent Key: ' + keyCodeToSend);
         }
     }
 

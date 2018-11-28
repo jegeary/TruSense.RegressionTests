@@ -9,6 +9,7 @@ class AndroidKeys {
     Seven = 14;
     Eight = 15;
     Nine = 16;
+    Pound = 18;
     A = 29;
     B = 30;
     C = 31;
@@ -122,6 +123,8 @@ class AndroidKeys {
                 return this.At;
             case '.':
                 return this.Period;
+            case '#':
+                return this.Pound;
             default:
                 return -1;
         }
