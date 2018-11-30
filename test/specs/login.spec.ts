@@ -9,11 +9,16 @@ describe('Login Screen', () => {
         help.waitForSplashScreen();
         help.getThroughIntroScreens();
         Login.FillOutLoginForm('jarrodgeary@gmail.com', 'Trusense#1234');
+        let username = browser.getText(Login.UserName);
         let password = browser.getText(Login.Password);
-        expect(password).to.equal('Trusense#1234');
+        if(username != 'jarrodgeary@gmail.com' || password != 'Trusense#1234'){
+            browser.saveScreenshot('./../../errorShots/login-error');
+        }
+        
         Login.TapLoginButton();
         browser.pause(5000);
-        expect(browser.element(help.FabSelector).isVisibleWithinViewport()).to.be.true;
+        browser.waitUntil(() => browser.isExisting('//android.webkit.WebView[@content-desc="TruSense"]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image') === false)
+        expect(browser.isVisibleWithinViewport(help.FabSelector)).to.be.true;
 
     });
 
