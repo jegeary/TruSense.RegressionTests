@@ -41,7 +41,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './dist/src/specs/login.spec.js'
+        './dist/src/specs/create-new-account.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -276,10 +276,7 @@ exports.config = {
      * @param {Object} error error object if any
      */
     afterCommand: function(commandName, args, result, error) {
-        console.log('commandName: ' + JSON.stringify(commandName) + '\n');
-        console.log('args: ' + JSON.stringify(args) + '\n');
-        console.log('result: ' + JSON.stringify(result) + '\n');
-        console.log('error: ' + JSON.stringify(error) + '\n');
+        console.log('commandName: ' + JSON.stringify(commandName) + JSON.stringify(args) + 'result: ' + JSON.stringify(result) + '\n');
 
        // console.log('[' + Date.now() + '] - Command Name: ' + commandName);
        // args.forEach(arg => {

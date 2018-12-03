@@ -1,8 +1,10 @@
 import Intro from '../pages/intro.page';
 import Login from '../pages/login.page';
 import action from '../helpers/actions';
+import AccountType from '../pages/type-of-account.page';
 import {expect} from 'chai';
 import help from '../helpers/helpers';
+import TellUsAboutYourself from '../pages/tell-us-about-yourself.page';
 
 describe('Login Screen', () => {
     it('should log me in', () => {
@@ -17,9 +19,21 @@ describe('Login Screen', () => {
         
         Login.TapLoginButton();
         browser.pause(5000);
-        browser.waitUntil(() => browser.isExisting('//android.webkit.WebView[@content-desc="TruSense"]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image') === false)
-        expect(browser.isVisibleWithinViewport(help.FabSelector)).to.be.true;
+        browser.waitUntil(() => browser.isExisting(help.LoaderLogo) === false)
+        expect(browser.isEnabled(help.FabSelector)).to.be.true;
 
     });
 
 });
+
+describe('Create New Account', () => {
+    it('should let me create a new account', () => {
+        help.waitForSplashScreen();
+        help.getThroughIntroScreens();
+        Login.TapCreateNewAccountButton();
+        action.tap(AccountType.HealthAccount);
+        action.tap(AccountType.ContinueButton);
+        TellUsAboutYourself.fillOutRegistrationForm();
+        
+    })
+})

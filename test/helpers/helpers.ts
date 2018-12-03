@@ -18,8 +18,15 @@ class Helpers {
     }
 
     FabSelector = selector.customLocator(selector.className(classTypes.WebView) + selector.child(selector.className(classTypes.View) + selector.child(selector.className(classTypes.View) + selector.child(selector.className(classTypes.View)+ selector.clickable))));
+    LoaderLogo = '//android.webkit.WebView[@content-desc="TruSense"]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Image';
+    randomNumber(min: number, max: number): number {
+        return Math.floor(Math.random()*(max - min + 1) + min)
+    }
+    emailNumber = this.randomNumber(1, 999);
 
-    
+    verifyUsersEmail(username: string): void {
+        
+    }
 }
 export enum MetaState {
     noShift,
