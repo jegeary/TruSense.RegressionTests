@@ -7,9 +7,11 @@ import help from '../helpers/helpers';
 describe('getting through the Intro screens', () => {
     it('should take user to login screen', () => {
         help.waitForSplashScreen();
+        console.log('Contexts: ' + JSON.stringify(browser.contexts()));
         help.getThroughIntroScreens();
         browser.pause(5000);
         expect(browser.getText(Login.CreateNewAccountButton)).to.contain('CREATE A NEW ACCOUNT');
+        
     });
 
 });

@@ -41,7 +41,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './dist/src/specs/create-new-account.spec.js'
+        './dist/src/specs/*.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -249,17 +249,7 @@ exports.config = {
      */
     afterTest: function(test) {
         console.log('Test: ' + JSON.stringify(test));
-       // if (test.passed = true) {
-       //     console.log('Test Passed');
-       // } else {
-       //     console.log('Test Failed');
-       // }
-       // var duration = test.duration;
-       // 
-       // var minutes = Math.floor(duration / 60000);
-       // var seconds = ((duration % 60000) / 1000).toFixed(0);
-//
-       // console.log('Duration of Test: ' + (seconds == 60 ? (minutes + 1) + ":00" : minutes + ":" + (seconds < 10 ? "0" : "") + seconds));
+       
     },
     /**
      * Hook that gets executed after the suite has ended

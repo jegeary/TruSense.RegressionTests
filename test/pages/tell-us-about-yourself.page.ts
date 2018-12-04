@@ -22,11 +22,9 @@ class TellUsAboutYourselfScreen {
     DatePickerYears = selector.nestedSelector(selector.className(classType.Dialog), selector.text('2018'));
     ContinueButton = selector.byText('CONTINUE');
     BackToLogin = selector.byText('Back to Login');
+    GoogleAddress = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[1]';
 
-
-    PickGoogleAddress(): void {
-        action.tapLocation(503, 534);
-    }
+    
 
     fillOutRegistrationForm(): void {
         action.tap(this.FirstName);
@@ -50,10 +48,7 @@ class TellUsAboutYourselfScreen {
         action.tap(this.Address)
         browser.pause(2000)
         action.sendKeys('5481 Creek');
-        browser.pause(5000);
-        this.PickGoogleAddress();
-        
-
+        action.tap(this.GoogleAddress);
     }
 }
 const TellUsAboutYourself = new TellUsAboutYourselfScreen;

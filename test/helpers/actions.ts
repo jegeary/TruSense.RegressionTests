@@ -63,15 +63,16 @@ class Actions {
     }
 
     tap(selector: string): void {
-        let location = this.getElementLocation(selector);
-        this.tapLocation(location.x, location.y);
+        //let location = this.getElementLocation(selector);
+        //this.tapLocation(location.x, location.y);
+        browser.touchAction(selector, 'tap');
         console.log("Tapped");
-        console.log('Element is Selected? : ' + browser.isSelected(selector));
+        browser.pause(2000);
     }
 
     tapLocation(x: number, y: number){
         browser.touchPerform([
-            { action: 'tap', options: {x: x, y: y} },
+            { action: 'tap', options: {x: x, y: y} }
         ]);
     }
 

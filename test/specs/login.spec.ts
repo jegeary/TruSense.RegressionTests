@@ -25,15 +25,3 @@ describe('Login Screen', () => {
     });
 
 });
-
-describe('Create New Account', () => {
-    it('should let me create a new account', () => {
-        help.waitForSplashScreen();
-        help.getThroughIntroScreens();
-        Login.TapCreateNewAccountButton();
-        action.tap(AccountType.HealthAccount);
-        action.tap(AccountType.ContinueButton);
-        TellUsAboutYourself.fillOutRegistrationForm();
-        
-    })
-})
