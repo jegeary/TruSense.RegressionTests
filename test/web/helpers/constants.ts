@@ -7,6 +7,7 @@ class Constants {
     LoginUrl = this.BaseUrl + '/login';
     LogoutUrl = this.BaseUrl + '/logout';
     GetStartedUrl = this.BaseUrl + '/get-started';
+    PageTitle = Selector.class('page-title');
 }
 const constants = new Constants();
 export default constants;

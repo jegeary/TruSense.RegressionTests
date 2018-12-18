@@ -5,5 +5,5 @@ class ErrorMessages {
     ShouldBeLandlineValidation = "//*[@data-selenium='phone-not-landline']";
     GlobalMessageAlert = Selector.class('alert-content');
 }
-export default ErrorMessages;
+export default new ErrorMessages();
 

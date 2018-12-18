@@ -3,9 +3,9 @@ import Selector from "../../helpers/selectors";
 class TimelinePage {
 
     TimelineDate = Selector.class('timeline-date');
-    TimelineFilterGps = "//*[@data-selenium='timeline-filter-gps']";
-    TimelineBackToTop = "//*[@data-selenium='timeline-backToTop']";
-
+    FilterGps = "//*[@data-selenium='timeline-filter-gps']";
+    BackToTop = "//*[@data-selenium='timeline-backToTop']";
+    EventCards = Selector.tag('ts-event-card');
         
 }
 const Timeline = new TimelinePage;

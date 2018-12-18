@@ -10,5 +10,5 @@ class SettingsMenu {
     SettingsName = "//*[@data-selenium='settings-name']";
     SettingsUsername = "//*[@data-selenium='settings-username']";
 }
-export default SettingsMenu;
+export default new SettingsMenu();
 
