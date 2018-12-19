@@ -1,4 +1,5 @@
 import selector from '../../helpers/selectors';
+import help from '../../helpers/helpers';
 class LoginPage {
 
     Username = selector.name('username');
@@ -9,24 +10,26 @@ class LoginPage {
         browser.click(this.Username).keys('adam.schaible+employer@gmail.com')
         browser.click(this.Password).keys('TruSense#1234')
         browser.click(this.LoginButton)  
+        help.WaitForPageLoad();
     }
-
     ExistingPassiveMonitoringUserLogin(): void {
         browser.click(this.Username).keys('jgeary@openmotion.com')
         browser.click(this.Password).keys('Trusense#1234')
         browser.click(this.LoginButton)  
+        help.WaitForPageLoad();
     }
-
     ExistingHealthUserLogin(): void {
         browser.click(this.Username).keys('jarrodgeary@gmail.com')
         browser.click(this.Password).keys('Trusense#1234')
         browser.click(this.LoginButton)  
+        help.WaitForPageLoad();
     }
 
     ManageAppLogin(): void {
         browser.click(this.Username).keys('jgeary@racoindustries.com')
         browser.click(this.Password).keys('Trusense#1234')
         browser.click(this.LoginButton)  
+        help.WaitForPageLoad();
     }
     
 }

@@ -6,12 +6,17 @@ class Helpers {
     SetupEnvironment(url: string): void {
         browser.windowHandleMaximize();
         browser.url(url);
+        this.WaitForPageLoad();
     }
     LoginPassiveMonitoring(): void {
         Login.ExistingPassiveMonitoringUserLogin();
         browser.waitForExist(Pulse.LocalWeather);
     }
-    
+
+    WaitForPageLoad(): void {
+        browser.waitUntil(() => browser.isVisible(Selector.id('preloader')) == false);
+    }
+
 }
 const help = new Helpers();
 export default help;

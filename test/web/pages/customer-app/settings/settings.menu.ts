@@ -1,4 +1,5 @@
 import Selector from "../../../helpers/selectors";
+import { DH_CHECK_P_NOT_PRIME } from "constants";
 
 class SettingsMenu {
     AccountSetting = "//*[@data-selenium='settings-menu-Account']";

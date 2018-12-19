@@ -41,7 +41,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './dist/src/specs/*.spec.js'
+        './dist/src/*/specs/*/*/home-details-page.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -74,12 +74,12 @@ exports.config = {
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
         maxInstances: 1,
-        platformName: 'Android',
-        deviceName: 'Android Emulator',
-        automationName: 'UiAutomator2',
-        //browserName: 'chrome',
-        app: '/Users/jarrodgeary/Desktop/TruSense.apk',
-        avd: 'Test_Phone_Nexus_5'
+        platformName: 'WINDOWS',
+        //deviceName: 'Android Emulator',
+        //automationName: 'UiAutomator2',
+        browserName: 'chrome',
+        //app: '/Users/jarrodgeary/Desktop/TruSense.apk',
+        //avd: 'Test_Phone_Nexus_5'
     }],
     //
     // ===================
@@ -229,8 +229,10 @@ exports.config = {
      * Function to be executed before a test (in Mocha/Jasmine) or a step (in Cucumber) starts.
      * @param {Object} test test details
      */
-    // beforeTest: function (test) {
-    // },
+    beforeTest: function (test) {
+        thisTest = JSON.stringify(test);
+        console.log('Started Running Test: ' + JSON.parse(thisTest).fullTitle  + '\n');
+    },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
@@ -248,7 +250,8 @@ exports.config = {
      * @param {Object} test test details
      */
     afterTest: function(test) {
-        console.log('Test: ' + JSON.stringify(test));
+        thisTest = JSON.parse(JSON.stringify(test));
+        console.log('Finished Running Test: ' + thisTest.fullTitle + ' Passed?: ' + thisTest.passed + '\n');
        
     },
     /**
@@ -266,8 +269,9 @@ exports.config = {
      * @param {Object} error error object if any
      */
     afterCommand: function(commandName, args, result, error) {
-        console.log('commandName: ' + JSON.stringify(commandName) + JSON.stringify(args) + 'result: ' + JSON.stringify(result) + '\n');
-
+        console.log('commandName: ' + commandName);
+        console.log('Arguments: ' + args + '\n');
+        browser.pause(1000);
        // console.log('[' + Date.now() + '] - Command Name: ' + commandName);
        // args.forEach(arg => {
        //     console.log('Argument:' + arg);

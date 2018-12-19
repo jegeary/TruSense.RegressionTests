@@ -8,7 +8,7 @@ describe('Login Screen', () => {
     context('when using valid passive monitoring credentials', () => {
         it('should allow me to log in', () => {
             help.SetupEnvironment(constants.LoginUrl);
-            Login.ExistingPassiveMonitoringUserLogin();
+            help.LoginPassiveMonitoring();
             expect(browser.isExisting(Pulse.LocalWeather)).to.eq(true);
         });
     });

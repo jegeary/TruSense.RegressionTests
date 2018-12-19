@@ -12,12 +12,21 @@ import HomeDetails from '../../../pages/customer-app/home-details/home-details.p
 import ErrorMessages from '../../../pages/shared/error.messages';
 
 describe('Home Details Page', () => {
-    help.SetupEnvironment(constants.LoginUrl);
-    help.LoginPassiveMonitoring();
-    browser.click(UserAppMenu.MenuHomeElementXPath);
+    before(() => {
+        console.log("Before I click on the edit details icon")
+        console.log('****************************************' + '\n')
+        help.SetupEnvironment(constants.LoginUrl);
+        help.LoginPassiveMonitoring();
+        browser.click(UserAppMenu.MenuHomeElementXPath);
+    });
+    
     context('when I click on the edit details icon', () => {
-        browser.click(HomeDetails.EditDetails);
         context('and clear the inputs', () => {
+            beforeEach(() => {
+                console.log("Before I clear the inputs")
+                console.log('****************************************' + '\n')
+                browser.click(HomeDetails.EditDetails);
+            });
             it('should not allow the form to submit', () => {
                 browser.clearElement(HomeDetails.EditPhone);
                 browser.clearElement(HomeDetails.EditAddress);
@@ -28,9 +37,20 @@ describe('Home Details Page', () => {
         
     });
     context('when I click on a room card', () => {
+        
         context('and I click on the edit details icon', () => {
-            browser.click(RoomDetails.EditDetails);
+            beforeEach(() => {
+                console.log("Before I click on the edit room details icon")
+                console.log('****************************************' + '\n')    
+                browser.click(HomeDetails.RoomCards);
+            })
+            
             context('and clear the inputs', () => {
+                beforeEach(()=> {
+                    console.log("Before I clear the inputs")
+                    console.log('****************************************' + '\n')    
+                    browser.click(RoomDetails.EditDetails);            
+                });
                 it('should not allow the form to submit', () => {
                     browser.clearElement(RoomDetails.EditRoomName);
                     browser.click(RoomDetails.SaveButton);
